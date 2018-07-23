@@ -6,12 +6,22 @@ import webbrowser
 from datetime import datetime
 from bs4 import BeautifulSoup
 
+# For 車票資訊 :
+#   桃園 + 中壢 : 1 + 1017 
+#   宜蘭 + 頭城 : 14 + 1816
+# For 訂票資訊 :
+#   中壢 : 108
+#   頭城 : 077
+
+month = input("Please input month: ")
+date = input("Please input date: ")
+
 # 車票資訊：中壢到頭城
 fromCity = '1'
 fromStation = '1017'
 toCity = '14'
 toStation = '1816' 
-date = '2018-07-24'
+date = '2018-' + month + '-' + date
 
 # 取得form data
 payload = {
@@ -85,7 +95,10 @@ df = pd.DataFrame(
 print(df)
 
 # 產出訂購網址
-# http://railway.hinet.net/Foreign/TW/etno1.html?from_station=108&to_station=077&getin_date=2018/07/24&train_no=562
+from_station = '108'
+to_station = '077'
+train_no = input("Please input train code: ")
+getin_date = '2018/' + month + '/' + date
 orderUrl = "http://railway.hinet.net/Foreign/TW/etno1.html?from_station=" + from_station + "&to_station=" + to_station + "&getin_date=" + getin_date + "&train_no=" + train_no
 
-webbrowser.open('http://google.co.kr', new=2)
+webbrowser.open(orderUrl, new=0)
