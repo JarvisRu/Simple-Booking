@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 #   中壢 : 108
 #   頭城 : 077
 
-def search_train(mode, month, date):
+def search(mode, month, date):
 
     # 0 : 頭城到中壢 |  1 : 中壢到頭城
     if mode == 0:

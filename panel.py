@@ -1,4 +1,5 @@
 import sys
+from search_train import search
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import (QApplication, QWidget, QGroupBox, QHBoxLayout, QVBoxLayout, QLabel, QPushButton)
 
@@ -42,7 +43,7 @@ class orderPanel(QWidget):
         self.__search_box.setLayout(vBox)
     
     def __search(self, mode):
-        print(mode)
+        search(mode, '07', '29')
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
