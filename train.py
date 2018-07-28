@@ -21,7 +21,7 @@ fromCity = '1'
 fromStation = '1017'
 toCity = '14'
 toStation = '1816' 
-date = '2018-' + month + '-' + date
+time = '2018-' + month + '-' + date
 
 # 取得form data
 payload = {
@@ -32,7 +32,7 @@ payload = {
     'ToStation': toStation,
     'ToStationName': '0',
     'TrainClass': '2',
-    'searchdate': '2018-07-24',
+    'searchdate': time,
     'FromTimeSelect': '0000',
     'ToTimeSelect': '2359',
     'Timetype': '1'
