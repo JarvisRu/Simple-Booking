@@ -14,14 +14,14 @@ from bs4 import BeautifulSoup
 #   頭城 : 077
 
 month = input("Please input month: ")
-date = input("Please input date: ")
+day = input("Please input day: ")
 
 # 車票資訊：中壢到頭城
 fromCity = '1'
 fromStation = '1017'
 toCity = '14'
 toStation = '1816' 
-time = '2018-' + month + '-' + date
+time = '2018-' + month + '-' + day
 
 # 取得form data
 payload = {
@@ -98,7 +98,7 @@ print(df)
 from_station = '108'
 to_station = '077'
 train_no = input("Please input train code: ")
-getin_date = '2018/' + month + '/' + date
+getin_date = '2018/' + month + '/' + day
 orderUrl = "http://railway.hinet.net/Foreign/TW/etno1.html?from_station=" + from_station + "&to_station=" + to_station + "&getin_date=" + getin_date + "&train_no=" + train_no
 
 webbrowser.open(orderUrl, new=0)

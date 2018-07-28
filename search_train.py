@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 #   中壢 : 108
 #   頭城 : 077
 
-def search(mode, month, date):
+def search(mode, year, month, day):
 
     # 0 : 頭城到中壢 |  1 : 中壢到頭城
     if mode == 0:
@@ -28,7 +28,7 @@ def search(mode, month, date):
         toStation = '1816'
 
     # set time
-    time = '2018-' + month + '-' + date
+    time = year + '-' + month + '-' + day
 
     # 取得form data
     payload = {
