@@ -2,17 +2,17 @@ import sys
 from datetime import datetime
 import search_train
 from PyQt5.QtCore import Qt, pyqtSlot
-from PyQt5.QtWidgets import (QApplication, QWidget, QGroupBox, QHBoxLayout, QVBoxLayout, QLabel, QPushButton, QSpinBox)
+from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QGroupBox, QHBoxLayout, QVBoxLayout, QLabel, QPushButton, QSpinBox)
 
-class orderPanel(QWidget):
+class OrderPanel(QWidget):
     def __init__(self):
         super().__init__()
         self.__initUI()
 
     def __initUI(self):
-        self.resize(300, 200)
-        self.move(400,200)
-        self.setWindowTitle('Simple Booking')
+        # self.resize(300, 200)
+        # self.move(400,200)
+        # self.setWindowTitle('Simple Booking')
         
         self.__window_layout = QHBoxLayout()
         self.__setSearchBoxUI()
@@ -80,9 +80,19 @@ class orderPanel(QWidget):
         day = self.__formatTime(self.__day.value())
         search_train.search(mode, year, month, day)
 
+class BaseWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.resize(300, 200)
+        self.move(400,200)
+        self.setWindowTitle('Simple Booking')
+        self.statusBar()
+        self.setCentralWidget(OrderPanel())
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     
-    w = orderPanel()
-    w.show()
+    w = BaseWindow()
+    w.show()   
+    
     sys.exit(app.exec_())
