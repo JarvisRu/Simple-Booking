@@ -1,8 +1,6 @@
 import requests
-import pandas as pd
 import re
 import json
-import webbrowser
 from datetime import datetime
 from bs4 import BeautifulSoup
 
@@ -54,6 +52,7 @@ def search(mode, year, month, day):
 
     # to list
     trainList = json.loads(trainDetail)
+
     trainType = []
     trainNum = []
     viaRoad = []
@@ -88,16 +87,18 @@ def search(mode, year, month, day):
         needTime.append(time)
         money.append(num['Fare'])
 
-    # 轉為dataFrame
-    df = pd.DataFrame(
-        {'Type' : trainType,
-        'TrainCode' : trainNum,
-        'Via' : viaRoad,
-        'Departure Time' : departureTime, 
-        'Arrival Time' : arrivalTime, 
-        'Need Time' : needTime,
-        'Money' : money },
-        columns=['Type', 'TrainCode', 'Via', 'Departure Time', 'Arrival Time', 'Need Time', 'Money']
-    )
-    print(df)
+    return trainType, trainNum, viaRoad, departureTime, arrivalTime, needTime, money
+
+    # # 轉為dataFrame
+    # df = pd.DataFrame(
+    #     {'Type' : trainType,
+    #     'TrainCode' : trainNum,
+    #     'Via' : viaRoad,
+    #     'Departure Time' : departureTime, 
+    #     'Arrival Time' : arrivalTime, 
+    #     'Need Time' : needTime,
+    #     'Money' : money },
+    #     columns=['Type', 'TrainCode', 'Via', 'Departure Time', 'Arrival Time', 'Need Time', 'Money']
+    # )
+    # print(df)
 
